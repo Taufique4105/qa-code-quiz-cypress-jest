@@ -1,12 +1,13 @@
 # QA Testing Quiz
 
-### Scenario
-The frontend team has developed a prototype login portal for an up and coming platform.
-However, they have not implemented any testing yet and it is up to you to do so.
+# (Day1)
+Refactoring index.js to move app routes to a seperate file (app.js) so that only server starts in index.js
+# Install Dependencies (jest, supertest, ts-test, @type/jest, @type/supertest)
+Jest is already configured. 
 
-As the QA developer, what is tested and how it is tested is up to you.
-Management simply asks that these tests provide as much evidence as possible of the platform's reliability.
+Install supertest with command : npm install --save-dev jest supertest
 
-### Notes
-- Submission must include a link to a public fork/clone of this repository
-- We typically use Jest for testing node.js/API related logic and Cypress for testing UI functionality, however, you are more than welcome to use any testing framework you desire so long as you are able to provide reasonable justification
+# Create basic POST API successful testcase script.
+Refactored node_module/formidable/index.cjs because 'node:fs' couldn't be found 
+
+Run tests with command : npx jest

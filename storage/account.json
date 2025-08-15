@@ -11,5 +11,12 @@
         "favouriteFruit": "Mango",
         "favouriteMovie": "V for Vendetta",
         "favouriteNumber": "The last prime number"
+    },
+    "testuser": {
+        "name": "Miraz",
+        "password": "password123",
+        "favouriteFruit": "Apple",
+        "favouriteMovie": "Inception",
+        "favouriteNumber": 34
     }
 }
