@@ -18,5 +18,40 @@
         "favouriteFruit": "Apple",
         "favouriteMovie": "Inception",
         "favouriteNumber": 34
+    },
+    "testuser_1755367499432_209": {
+        "name": "Miraz",
+        "password": "password123",
+        "favouriteFruit": "Apple",
+        "favouriteMovie": "Inception",
+        "favouriteNumber": 34
+    },
+    "testuser_1755367499475_132": {
+        "name": "Miraz",
+        "password": "password123",
+        "favouriteFruit": "Apple",
+        "favouriteMovie": "Inception",
+        "favouriteNumber": 34
+    },
+    "undefined": {},
+    "null": {
+        "name": null,
+        "password": null,
+        "favouriteFruit": null,
+        "favouriteMovie": null,
+        "favouriteNumber": null
+    },
+    "testuser_1755369662780_892": {
+        "name": "David",
+        "password": "password123",
+        "favouriteFruit": "Tangerine",
+        "favouriteMovie": "Roman Holiday",
+        "favouriteNumber": 9
+    },
+    "testuser_1755370665607_143": {
+        "name": "Millar",
+        "password": "password321",
+        "favouriteFruit": "Banana",
+        "favouriteNumber": 18
     }
 }
