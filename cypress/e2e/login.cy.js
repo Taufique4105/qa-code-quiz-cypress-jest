@@ -1,32 +1,48 @@
+import {  LoginPage } from '../pageObjects/LoginPage';
 describe('Login Page', () => {
   beforeEach(() => {
-    cy.visit('/') // update this when real url is provided
+    const loginPage = new LoginPage();
+    loginPage.visit();
   });
 
-  it('should display a login form', () => {
-    cy.get('input[placeholder="Enter Username"]').should('exist');
+  it('validates login form components', () => {
+    const loginPage = new LoginPage();
+    loginPage.fillUsername('testuser');
+    loginPage.fillPassword('password123');
+    loginPage.clickLoginBtn();
+  });
+
+  it('validates that user can login', () => {
+    const loginPage = new LoginPage();
+    loginPage.fillUsername('testuser');
+    loginPage.fillPassword('password123');
+    loginPage.clickLoginBtn();
+    cy.url().should('include', '/dashboard'); // update this when real url is provided
     cy.get('input[placeholder="password"]').should('exist');
     cy.contains('button', 'LOGIN').should('be.visible');
     cy.contains('If you do not have an account, contact an admin').should('be.visible');
   });
 
-  it('should allow user to login', () => {
-    cy.get('input[placeholder="Enter Username"]').type('testuser');
-    cy.get('input[placeholder="password"]').type('password123');
-    cy.contains('button', 'LOGIN').click();
+  it('validates that user can login', () => {
+    const loginPage = new LoginPage();
+    loginPage.fillUsername('testuser');
+    loginPage.fillPassword('password123');
+    loginPage.clickLoginBtn();
     cy.url().should('include', '/dashboard'); // update this when real url is provided
     cy.contains('Welcome, testuser').should('be.visible'); // modify as needed
   });
 
-  it('should show error on invalid login', () => {
-    cy.get('input[placeholder="Enter Username"]').type('invaliduser');
-    cy.get('input[placeholder="password"]').type('wrongpassword');
-    cy.contains('button', 'LOGIN').click();
-    cy.contains('Username or password is incorrect').should('be.visible'); // modify as needed
+  it('validates the error message for invalid credentials', () => {
+    const loginPage = new LoginPage();
+    loginPage.fillUsername('invaliduser');
+    loginPage.fillPassword('wrongpassword');
+    loginPage.clickLoginBtn();
+    cy.contains('INVALID USER').should('be.visible'); // auth.tsx has this negative case covered
   });
-  
-  it('should show error on empty login', () => {
-    cy.contains('button', 'LOGIN').click();
+
+  it('validates the error message for empty login', () => {
+    const loginPage = new LoginPage();
+    loginPage.clickLoginBtn();
     cy.contains('Username and password are required').should('be.visible'); // modify as needed
   });
 });

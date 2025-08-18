@@ -1,38 +1,51 @@
+import { LoginPage } from "../pageObject/LoginPage";
+import { HomePage } from "../pageObject/HomePage"; 
 describe('Home Page', () => {
   beforeEach(() => {
-    cy.visit('/'); // update this when real url is provided
-    cy.login('testuser', 'password123'); // custom command from command.js
+    const loginPage = new LoginPage();
+    loginPage.visit();
+    loginPage.fillUsername('testuser');
+    loginPage.fillPassword('password123');
+    loginPage.clickLoginBtn();
   });
 
   afterEach(() => {
-    cy.get('button', 'Logout').click();
+    const homePage = new HomePage();
+    homePage.getLogoutButton().click();
   });
 
-  it('should display the welcome message', () => {
-    cy.contains('Welcome to the Home Page').should('be.visible'); // modify as needed
+  it('validates the welcome message', () => {
+    const homePage = new HomePage();
+    homePage.getWelcomeMessage().should('be.visible');
   });
 
-  it('should display the user profile link', () => {
-    cy.contains('Profile').should('be.visible'); // modify as needed
-  });                       
-
-  it('should display the logout button', () => {
-    cy.contains('Logout').should('be.visible'); // modify as needed
+  it('validates the user profile link', () => {
+    const homePage = new HomePage();
+    homePage.getUserProfileLink().should('be.visible');
   });
 
-  it('should display the user name', () => {
-    cy.contains('testuser').should('be.visible'); // modify as needed
+  it('validates the logout button', () => {
+    const homePage = new HomePage();
+    homePage.getLogoutButton().should('be.visible');
   });
 
-  it('should display the favourite fruit', () => {
-    cy.contains('Favourite Fruit: Apple').should('be.visible'); // modify as needed
+  it('validates the user name', () => {
+    const homePage = new HomePage();
+    homePage.getUserName().should('be.visible');
   });
 
-  it('should display the favourite movie', () => {
-    cy.contains('Favourite Movie: Inception').should('be.visible'); // modify as needed
+  it('validates the favourite fruit', () => {
+    const homePage = new HomePage();
+    homePage.getFavouriteFruit().should('be.visible');  
   });
 
-  it('should display the favourite number', () => {
-    cy.contains('Favourite Number: 42').should('be.visible'); // modify as needed
+  it('validates the favourite movie', () => {
+    const homePage = new HomePage();
+    homePage.getFavouriteMovie().should('be.visible');
+  });
+
+  it('validates the favourite number', () => {
+    const homePage = new HomePage();
+    homePage.getFavouriteNumber().should('be.visible');
   });
 });

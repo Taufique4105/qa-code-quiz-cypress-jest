@@ -35,8 +35,8 @@
 //     }
 //   }
 // }
-Cypress.Commands.add('login', (username, password) => {
-  cy.get('input[placeholder="Enter Username"]').type(username);
-  cy.get('input[placeholder="password"]').type(password);
-  cy.contains('button', 'LOGIN').click();
-});
+// Cypress.Commands.add('login', (username, password) => {
+//   cy.get('input[placeholder="Enter Username"]').type(username);
+//   cy.get('input[placeholder="password"]').type(password);
+//   cy.contains('button', 'LOGIN').click();
+// });
