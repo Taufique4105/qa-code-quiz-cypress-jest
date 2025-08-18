@@ -3,49 +3,41 @@ import { HomePage } from "../pageObject/HomePage";
 describe('Home Page', () => {
   beforeEach(() => {
     const loginPage = new LoginPage();
-    loginPage.visit();
+    const homePage = new HomePage();
     loginPage.fillUsername('testuser');
     loginPage.fillPassword('password123');
     loginPage.clickLoginBtn();
   });
 
   afterEach(() => {
-    const homePage = new HomePage();
     homePage.getLogoutButton().click();
   });
 
   it('validates the welcome message', () => {
-    const homePage = new HomePage();
     homePage.getWelcomeMessage().should('be.visible');
   });
 
   it('validates the user profile link', () => {
-    const homePage = new HomePage();
     homePage.getUserProfileLink().should('be.visible');
   });
 
   it('validates the logout button', () => {
-    const homePage = new HomePage();
     homePage.getLogoutButton().should('be.visible');
   });
 
   it('validates the user name', () => {
-    const homePage = new HomePage();
-    homePage.getUserName().should('be.visible');
+    homePage.getUserName().should('have.text', 'testuser');
   });
 
   it('validates the favourite fruit', () => {
-    const homePage = new HomePage();
-    homePage.getFavouriteFruit().should('be.visible');  
+    homePage.getFavouriteFruit().should('have.text', 'Apple');
   });
 
   it('validates the favourite movie', () => {
-    const homePage = new HomePage();
-    homePage.getFavouriteMovie().should('be.visible');
+    homePage.getFavouriteMovie().should('have.text', 'Inception');
   });
 
   it('validates the favourite number', () => {
-    const homePage = new HomePage();
-    homePage.getFavouriteNumber().should('be.visible');
+    homePage.getFavouriteNumber().should('have.text', '42');
   });
 });

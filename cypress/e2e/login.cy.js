@@ -6,14 +6,12 @@ describe('Login Page', () => {
   });
 
   it('validates login form components', () => {
-    const loginPage = new LoginPage();
     loginPage.fillUsername('testuser');
     loginPage.fillPassword('password123');
     loginPage.clickLoginBtn();
   });
 
   it('validates that user can login', () => {
-    const loginPage = new LoginPage();
     loginPage.fillUsername('testuser');
     loginPage.fillPassword('password123');
     loginPage.clickLoginBtn();
@@ -24,7 +22,6 @@ describe('Login Page', () => {
   });
 
   it('validates that user can login', () => {
-    const loginPage = new LoginPage();
     loginPage.fillUsername('testuser');
     loginPage.fillPassword('password123');
     loginPage.clickLoginBtn();
@@ -33,7 +30,6 @@ describe('Login Page', () => {
   });
 
   it('validates the error message for invalid credentials', () => {
-    const loginPage = new LoginPage();
     loginPage.fillUsername('invaliduser');
     loginPage.fillPassword('wrongpassword');
     loginPage.clickLoginBtn();
@@ -41,7 +37,6 @@ describe('Login Page', () => {
   });
 
   it('validates the error message for empty login', () => {
-    const loginPage = new LoginPage();
     loginPage.clickLoginBtn();
     cy.contains('Username and password are required').should('be.visible'); // modify as needed
   });
